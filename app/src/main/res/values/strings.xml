@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Catnoot</string>
+    <string name="action_settings">Opções</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="previous">Voltar</string>
+
+    <string name="hello_first_fragment">Lista de contatos</string>
+</resources>
