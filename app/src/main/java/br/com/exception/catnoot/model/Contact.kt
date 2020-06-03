@@ -1,5 +1,5 @@
 data class Contact(
         val contactId: Int,
         var contactName: String,
-        var contactPhoneNumber: String,
+        var contactPhoneNumber: String
 )
