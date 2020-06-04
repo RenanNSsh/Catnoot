@@ -4,5 +4,5 @@
     <!-- Strings used for fragments for navigation -->
     <string name="previous">Voltafr</string>
 
-    <string name="hello_first_fragment">Lista de contatos</string>
+    <string name="no_contact">Não há contatos em sua lista</string>
 </resources>
