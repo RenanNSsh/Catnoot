@@ -9,15 +9,24 @@ class ContactDatabase(
 ): SQLiteOpenHelper(context, "contact.db", null, 1) {
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val sql = """
-            CREATE TABLE Contacts(
+        val createSql = """
+            CREATE TABLE Contact(
                 id INTEGER PRIMARY KEY autoincrement,
                 contactName TEXT,
                 contactPhoneNumber TEXT
             )
         """.trimIndent()
 
-        db?.execSQL(sql)
+        val insertSql = """
+            INSERT INTO Contact(
+                id,
+                contactName,
+                contactPhoneNumber
+            ) VALUES (1,'Alissito', '9999-9999')
+        """.trimIndent()
+
+        db?.execSQL(createSql)
+        db?.execSQL(insertSql)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

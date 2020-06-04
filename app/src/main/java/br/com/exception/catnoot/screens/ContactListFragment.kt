@@ -6,27 +6,48 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import br.com.exception.catnoot.R
-import kotlinx.android.synthetic.main.fragment_first.*
+import br.com.exception.catnoot.database.ContactAdapter
+import br.com.exception.catnoot.database.ContactDatabase
+import br.com.exception.catnoot.database.listContacts
+import kotlinx.android.synthetic.main.contact_list.*
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class ContactListFragment : Fragment() {
+    lateinit var recyclerView: RecyclerView
+    lateinit var database: ContactDatabase
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
+        return inflater.inflate(R.layout.contact_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
+
+        database = ContactDatabase(activity!!.applicationContext)
+
+        val contactAdapter = ContactAdapter()
+
+        recyclerView.adapter = contactAdapter
+        recyclerView.layoutManager = LinearLayoutManager(activity)
+
+        database.listContacts().forEach{
+            contactAdapter.addContact(it)
+        }
+
 
         fab.setOnClickListener{
+            print("teste")
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
     }

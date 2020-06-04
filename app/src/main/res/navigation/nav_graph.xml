@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/FirstFragment"
         android:name="br.com.exception.catnoot.screens.ContactListFragment"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/contact_list">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
