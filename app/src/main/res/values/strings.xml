@@ -2,7 +2,7 @@
     <string name="app_name">Catnoot</string>
     <string name="action_settings">Opções</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="previous">Voltafr</string>
-
+    <string name="previous">Voltar</string>
+    <string name="add">Adicionar</string>
     <string name="no_contact">Não há contatos em sua lista</string>
 </resources>

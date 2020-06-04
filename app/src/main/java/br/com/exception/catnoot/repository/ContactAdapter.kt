@@ -1,4 +1,4 @@
-package br.com.exception.catnoot.database
+package br.com.exception.catnoot.repository
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

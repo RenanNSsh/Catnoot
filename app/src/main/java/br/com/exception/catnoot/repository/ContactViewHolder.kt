@@ -1,4 +1,4 @@
-package br.com.exception.catnoot.database
+package br.com.exception.catnoot.repository
 
 import android.view.View
 import android.widget.TextView
@@ -14,7 +14,7 @@ class ContactViewHolder(view: View) : RecyclerView.ViewHolder(view)  {
 
     fun bind(contact: Contact) {
 
-        textViewContactName.text =  contact.contactName
-        textViewContactPhone.text = contact.contactPhoneNumber
+        textViewContactName.text =  contact.name
+        textViewContactPhone.text = contact.phoneNumber
     }
 }

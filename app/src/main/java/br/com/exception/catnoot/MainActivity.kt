@@ -4,12 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import br.com.exception.catnoot.database.ContactAdapter
-import br.com.exception.catnoot.database.ContactDatabase
-import br.com.exception.catnoot.database.listContacts
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -20,10 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
-
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
