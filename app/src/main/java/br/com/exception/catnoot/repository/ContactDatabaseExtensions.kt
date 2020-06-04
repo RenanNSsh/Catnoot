@@ -16,14 +16,16 @@ fun ContactDatabase.listContacts(): List<Contact> {
 
     while (cursor.moveToNext()) {
 
-        val contactId = cursor.getInt(cursor.getColumnIndex("id"))
+        val contactId = cursor.getLong(cursor.getColumnIndex("id"))
         val contactName = cursor.getString(cursor.getColumnIndex("contactName"))
         val contactPhone = cursor.getString(cursor.getColumnIndex("contactPhoneNumber"))
+        val contactEmail = cursor.getString(cursor.getColumnIndex("email"))
 
         val contact = Contact(
                 id = contactId,
                 name = contactName,
-                phoneNumber = contactPhone
+                phoneNumber = contactPhone,
+                email = contactEmail
         )
 
         contacts.add(contact)
@@ -39,7 +41,8 @@ fun ContactDatabase.addContact(contact: Contact):Long {
 
     val result = db.insert(contactTableName, null, ContentValues().apply {
         put("contactName", contact.name)
-        put("ContactPhoneNumber", contact.phoneNumber)
+        put("contactPhoneNumber", contact.phoneNumber)
+        put("email", contact.phoneNumber)
     })
 
     return result

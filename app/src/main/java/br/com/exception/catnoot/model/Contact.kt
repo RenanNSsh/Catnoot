@@ -4,5 +4,5 @@ data class Contact(
         var name: String,
         var phoneNumber: String,
         var email: String? = null,
-        val id: Int? = null
+        val id: Long? = null
 )

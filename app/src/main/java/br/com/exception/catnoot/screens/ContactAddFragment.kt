@@ -52,7 +52,7 @@ class ContactAddFragment : Fragment() {
                 Toast.makeText(activity, "Erro ao inserir", Toast.LENGTH_SHORT).show()
             }else{
                 Toast.makeText(activity, "Inserido com sucesso", Toast.LENGTH_SHORT).show()
-                contactAdapter.addContact(contact.copy(id = contactId as Int))
+                contactAdapter.addContact(contact.copy(id = contactId))
             }
 
         }
