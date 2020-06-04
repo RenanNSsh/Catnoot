@@ -9,9 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.exception.catnoot.R
-import br.com.exception.catnoot.database.ContactAdapter
-import br.com.exception.catnoot.database.ContactDatabase
-import br.com.exception.catnoot.database.listContacts
+import br.com.exception.catnoot.repository.ContactAdapter
+import br.com.exception.catnoot.repository.ContactDatabase
+import br.com.exception.catnoot.repository.listContacts
 import kotlinx.android.synthetic.main.contact_list.*
 
 /**
