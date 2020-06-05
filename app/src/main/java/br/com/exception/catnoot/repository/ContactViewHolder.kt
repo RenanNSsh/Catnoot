@@ -15,26 +15,30 @@ class ContactViewHolder(view: View) : RecyclerView.ViewHolder(view)  {
 
     private val textViewContactName = view.findViewById<TextView>(R.id.textViewContactName)
     private val textViewContactPhone = view.findViewById<TextView>(R.id.textViewContactPhone)
+
+    private val buttonDeleteContact = view.findViewById<TextView>(R.id.delete_button)
     lateinit var database: ContactDatabase
-
-
 
     fun bind(contact: Contact) {
         textViewContactName.text =  contact.name
         textViewContactPhone.text = contact.phoneNumber
-/*
-        delete_button.setOnClickListener {
+
+        val contactAdapter = ContactAdapter()
+        database = ContactDatabase(itemView.context)
+        buttonDeleteContact.setOnClickListener{
+
             val contactId = contact.id
-
-            val result = database.removeContact(contactId)
-
-            if (result == -1) {
-                Toast.makeText(activity, "Erro ao excluir", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(activity, "Excluído com sucesso", Toast.LENGTH_SHORT).show()
+            contactId?.let{
+                val contactIdRemoved = database.removeContact(it)
+                print(contactIdRemoved)
+                if(contactIdRemoved == -1){
+                    Toast.makeText(itemView.context, "Erro ao remover", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(itemView.context, "Removido com sucesso", Toast.LENGTH_SHORT).show()
+                    contact.onRemove?.invoke(contact)
+                }
             }
         }
- */
     }
 
 

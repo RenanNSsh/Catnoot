@@ -5,5 +5,5 @@ data class Contact(
         var phoneNumber: String,
         var email: String? = null,
         val id: Long? = null,
-        var onDelete: ((Contact)->Unit)? = null
+        var onRemove: ((Contact)->Unit)? = null
 )
