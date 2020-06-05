@@ -51,5 +51,15 @@ fun ContactDatabase.addContact(contact: Contact):Long {
 fun ContactDatabase.removeContact() {
 }
 
-fun ContactDatabase.updateContact() {
+fun ContactDatabase.updateContact(contact: Contact): Int {
+
+    val db = this.writableDatabase
+
+    val result = db.update(contactTableName, ContentValues().apply {
+        put("contactName", contact.name)
+        put("contactPhoneNumber", contact.phoneNumber)
+        put("email", contact.phoneNumber)
+    },"id=${contact.id}",null )
+
+    return result
 }
