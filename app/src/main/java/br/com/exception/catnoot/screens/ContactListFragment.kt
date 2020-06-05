@@ -5,13 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.exception.catnoot.R
-import br.com.exception.catnoot.repository.ContactAdapter
-import br.com.exception.catnoot.repository.ContactDatabase
-import br.com.exception.catnoot.repository.listContacts
+import br.com.exception.catnoot.model.Contact
+import br.com.exception.catnoot.repository.*
 import kotlinx.android.synthetic.main.contact_list.*
 
 /**
@@ -44,7 +45,6 @@ class ContactListFragment : Fragment() {
         database.listContacts().forEach{
             contactAdapter.addContact(it)
         }
-
 
         fab.setOnClickListener{
             print("teste")

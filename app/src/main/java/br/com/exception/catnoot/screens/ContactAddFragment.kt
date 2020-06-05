@@ -54,7 +54,6 @@ class ContactAddFragment : Fragment() {
                 Toast.makeText(activity, "Inserido com sucesso", Toast.LENGTH_SHORT).show()
                 contactAdapter.addContact(contact.copy(id = contactId))
             }
-
         }
 
         view.findViewById<Button>(R.id.button_second).setOnClickListener {
