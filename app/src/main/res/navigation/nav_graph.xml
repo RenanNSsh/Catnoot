@@ -22,5 +22,6 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <argument android:name="contact" />
     </fragment>
 </navigation>

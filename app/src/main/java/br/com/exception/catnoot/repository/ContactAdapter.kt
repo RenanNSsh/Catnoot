@@ -24,6 +24,18 @@ class ContactAdapter: RecyclerView.Adapter<ContactViewHolder>() {
         notifyDataSetChanged()
     }
 
+    fun updateContact(updatedContact: Contact): Boolean{
+        val indexUpdateContact = contacts.indexOfFirst {
+            updatedContact.id == it.id
+        }
+        if(indexUpdateContact != -1){
+            contacts[indexUpdateContact] = updatedContact
+            notifyDataSetChanged()
+            return true
+        }
+        return false
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.contact_list_item, parent, false)
         return ContactViewHolder(view)
