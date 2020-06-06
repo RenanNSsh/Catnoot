@@ -48,7 +48,9 @@ fun ContactDatabase.addContact(contact: Contact):Long {
     return result
 }
 
-fun ContactDatabase.removeContact() {
+fun ContactDatabase.removeContact(contactId: Long?): Int {
+    val db = this.writableDatabase
+     return db.delete(contactTableName, "id = ${contactId}", null)
 }
 
 fun ContactDatabase.updateContact(contact: Contact): Int {

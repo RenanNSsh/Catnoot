@@ -4,5 +4,6 @@
     <!-- Strings used for fragments for navigation -->
     <string name="previous">Voltar</string>
     <string name="add">Adicionar</string>
+    <string name="remove">Remover</string>
     <string name="no_contact">Não há contatos em sua lista</string>
 </resources>

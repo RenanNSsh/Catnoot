@@ -5,10 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.exception.catnoot.R
+import br.com.exception.catnoot.model.Contact
 import br.com.exception.catnoot.repository.ContactAdapter
 import br.com.exception.catnoot.repository.ContactDatabase
 import br.com.exception.catnoot.repository.listContacts
@@ -20,6 +23,7 @@ import kotlinx.android.synthetic.main.contact_list.*
 class ContactListFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
     lateinit var database: ContactDatabase
+    lateinit var contactAdapter: ContactAdapter
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -36,20 +40,22 @@ class ContactListFragment : Fragment() {
 
         database = ContactDatabase(activity!!.applicationContext)
 
-        val contactAdapter = ContactAdapter()
+        contactAdapter = ContactAdapter()
 
         recyclerView.adapter = contactAdapter
         recyclerView.layoutManager = LinearLayoutManager(activity)
 
         database.listContacts().forEach{
+            it.onRemove = ::removeContact
             contactAdapter.addContact(it)
         }
-
 
         fab.setOnClickListener{
             print("teste")
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
     }
-
+    private fun removeContact(contact: Contact){
+        contactAdapter.removeContact(contact)
+    }
 }

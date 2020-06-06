@@ -16,6 +16,14 @@ class ContactAdapter: RecyclerView.Adapter<ContactViewHolder>() {
         notifyDataSetChanged()
     }
 
+    fun removeContact(contact: Contact){
+        val contactId = contacts.indexOfFirst {
+            contact.id == it.id
+        }
+        contacts.removeAt(contactId)
+        notifyDataSetChanged()
+    }
+
     fun updateContact(updatedContact: Contact): Boolean{
         val indexUpdateContact = contacts.indexOfFirst {
             updatedContact.id == it.id

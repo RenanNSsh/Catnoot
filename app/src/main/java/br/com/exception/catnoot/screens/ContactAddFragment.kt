@@ -38,7 +38,7 @@ class ContactAddFragment : Fragment() {
 
         database = ContactDatabase(activity!!.applicationContext)
         arguments?.getString("contact")?.let{
-            contactUpdate = Gson().fromJson(it,Contact::class.java)
+            contactUpdate =  Gson().fromJson(it, Contact::class.java)
         }
 
         contactAdapter = ContactAdapter()
@@ -67,7 +67,6 @@ class ContactAddFragment : Fragment() {
             } ?: run {
                 createContact(contact)
             }
-
         }
 
         view.findViewById<Button>(R.id.button_second).setOnClickListener {
